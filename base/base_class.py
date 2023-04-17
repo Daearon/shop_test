@@ -14,10 +14,10 @@ class Base:
 
     """Method assert word"""
 
-    def assert_word(self, word, result):
-        value_word = word.text
-        assert value_word == result, "Wrong value word"
-        print("Good value word")
+    def assert_element(self, element, result):
+        value_element = element.text
+        assert value_element == result, "Wrong value element"
+        print("Good value element")
 
     """Method screenshot"""
 

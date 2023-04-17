@@ -21,6 +21,7 @@ def test_buy_product_1():
     options.add_experimental_option("detach", True)
     g = Service("C:\\Users\\alexa\\OneDrive\\Desktop\\Selenium\\resourse\\chromedriver.exe")
     driver = webdriver.Chrome(options=options, service=g, chrome_options=clear_terminal)
+    driver.maximize_window()
     print("Test 1 start")
 
     mp = MainPage(driver)
@@ -36,20 +37,3 @@ def test_buy_product_1():
     confp = ConfirmationPage(driver)
     confp.confirmation_order()
     cp.product_delete()
-
-
-
-
-    # login = LoginPage(driver)
-    # login.authorization()
-    # mp = MainPage(driver)
-    # mp.selecting_product()
-    # cp = CartPage(driver)
-    # cp.product_confirmation()
-    # up = UserPage(driver)
-    # up.user_information_confirmation()
-    # pp = PaymentPage(driver)
-    # pp.finish_buy_product()
-    # fp = FinishPage(driver)
-    # fp.finish()
-    # print("Test finish")

@@ -29,7 +29,6 @@ class MainPage(Base):
 
     def transfer_to_auth(self):
         self.driver.get(self.url)
-        self.driver.maximize_window()
         self.get_current_url()
         self.click_auth_button()
         self.assert_url("https://fkniga.ru/auth/")

@@ -51,4 +51,4 @@ class LoginPage(Base):
         self.input_login("alexandr8769@mail.ru")
         self.input_password("invinoveritas")
         self.click_login_button()
-        self.assert_word(self.get_personal_account_word(), "Личный кабинет")
+        self.assert_element(self.get_personal_account_word(), "Личный кабинет")

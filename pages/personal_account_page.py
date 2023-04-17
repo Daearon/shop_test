@@ -12,15 +12,15 @@ class PersonalAccountPage(Base):
     # Locators
 
     search_field = "//input[@name='q']"
-    magnifier_button = "//button[@class='btn btn--search']"
+    search_button = "//button[@class='btn btn--search']"
 
     # Getters
 
     def get_search_field(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.search_field)))
 
-    def get_magnifier_button(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.magnifier_button)))
+    def get_search_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.search_button)))
 
     # Actions
 
@@ -28,8 +28,8 @@ class PersonalAccountPage(Base):
         self.get_search_field().send_keys(search_text)
         print("Input text in search field")
 
-    def click_magnifier_button(self):
-        self.get_magnifier_button().click()
+    def click_search_button(self):
+        self.get_search_button().click()
         print("Click magnifier button")
 
     #Methods
@@ -37,5 +37,5 @@ class PersonalAccountPage(Base):
     def input_search_text(self):
         self.get_current_url()
         self.input_search("Пехов")
-        self.click_magnifier_button()
+        self.click_search_button()
         self.assert_url("https://fkniga.ru/search/?q=%D0%9F%D0%B5%D1%85%D0%BE%D0%B2")

@@ -17,7 +17,7 @@ class ConfirmationPage(Base):
     destination_point_button = "//*[@id='form-cart-order']/div[1]/div[3]/div/div/div/div/div/div/div[1]/div/div[2]/div/div[2]/div[2]/a"
     payment_form_button = "//input[@value='cash']"
     order_confirmation_button = "//*[@id='form-cart-order']/div[1]/div[4]/div/div/div/div[4]/div[2]/div/button/span"
-    cart = "/html/body/div[3]/header/div[2]/div[5]/div[4]/ul/li[5]/a/span[2]"
+    cart = "//a[starts-with(@href, '/cart/')]"
 
     # Getters
 

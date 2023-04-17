@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -16,9 +15,9 @@ class SearchPage(Base):
     hardcover_radio_button = "//div[@data-ga-label='Твердый переплет']"
     native_book_radio_button = "//div[@data-ga-label='Отечественная книга']"
     author_radio_button = "//div[@data-ga-label='Пехов А.Ю.']"
-    product = "/html/body/div[3]/div/div[2]/div/div/div[2]/div/div[1]/div/div[2]/div[1]/div[2]/div/div[3]/div[2]/a[2]"
+    product = "//div[contains(concat(' ', @class, ' '), ' card ') and .//a[contains(text(), 'Кровные братья')]]//a[contains(@id, 'js-add-to-cart')]"
     accept_button = "//*[@id='filterBox']/div/div[2]/div/div[16]/div/button[1]"
-    cart = "/html/body/div[3]/header/div[2]/div[5]/div[4]/ul/li[5]/a/span[2]"
+    cart = "//a[starts-with(@href, '/cart/')]"
 
     # Getters
 
@@ -72,13 +71,9 @@ class SearchPage(Base):
     def search_product(self):
         self.get_current_url()
         self.click_hardcover_radio_button()
-        time.sleep(3)
         self.click_native_book_radio_button()
-        time.sleep(3)
         self.click_author_radio_button()
-        time.sleep(3)
         self.click_accept_button()
-        time.sleep(10)
+        time.sleep(2)
         self.click_product()
-        time.sleep(5)
         self.click_cart()

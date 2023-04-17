@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -42,7 +41,7 @@ class CartPage(Base):
 
     def product_confirmation(self):
         self.get_current_url()
-        self.assert_word(self.get_cart_word(), "Корзина")
+        self.assert_element(self.get_cart_word(), "Корзина")
         self.click_continue_button()
         time.sleep(6)
 
