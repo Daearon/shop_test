@@ -6,15 +6,15 @@ from base.base_class import Base
 
 
 class CartPage(Base):
-
+    """Product in cart; methods in this class confirm product for order and delete product in end of test"""
     def __init__(self, driver):
         super().__init__(driver)
 
     # Locators
 
-    continue_button = "//a[@class ='btn btn--primary btn--fullWidth btn-next-loading cartBox__button-dekstop']"
+    continue_button = "//div[@class='cartBox__buttons']/a[@href = '/cart/order/']"
     cart_word = "//h1[@class ='main__title title title--48']"
-    bin = "/html/body/div[3]/div/div[2]/div/div/div[1]/form/div[2]/div/div/div[4]/a[2]"
+    bin = "//div[@class='card__controls']//a[.//*[name()='svg' and @class='icon icon-remove']]"
 
     # Getters
 
@@ -41,9 +41,11 @@ class CartPage(Base):
 
     def product_confirmation(self):
         self.get_current_url()
-        self.assert_element(self.get_cart_word(), "Корзина")
+        self.assert_element_text(self.get_cart_word(), "Корзина")
         self.click_continue_button()
-        time.sleep(6)
+        time.sleep(6)  # next page is heavy, need sleep for correct work
+
+    """Delete product from cart"""
 
     def product_delete(self):
         self.click_bin_button()

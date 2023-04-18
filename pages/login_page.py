@@ -5,7 +5,7 @@ from base.base_class import Base
 
 
 class LoginPage(Base):
-
+    """Authorization and transfer to personal account page"""
     def __init__(self, driver):
         super().__init__(driver)
 
@@ -51,4 +51,4 @@ class LoginPage(Base):
         self.input_login("alexandr8769@mail.ru")
         self.input_password("invinoveritas")
         self.click_login_button()
-        self.assert_element(self.get_personal_account_word(), "Личный кабинет")
+        self.assert_element_text(self.get_personal_account_word(), "Личный кабинет")

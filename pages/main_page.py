@@ -5,6 +5,7 @@ from base.base_class import Base
 
 
 class MainPage(Base):
+    """Open browser on main page and transfer to authorisation page"""
     url = 'https://fkniga.ru/'
 
     def __init__(self, driver):

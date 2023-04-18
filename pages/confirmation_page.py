@@ -7,16 +7,17 @@ from base.base_class import Base
 
 
 class ConfirmationPage(Base):
-
+    """On this page need click on 3 button, choosing delivery form, destination point and payment form,
+    next is creating screenshot, return to cart for delete product. Click on confirmation button goes to immediately create order"""
     def __init__(self, driver):
         super().__init__(driver)
 
     # Locators
 
-    pickup_delivery_radio_button = "//*[@id='form-cart-order']/div[1]/div[1]/div[1]/div/div/div[2]/div[2]/div/label[1]/input"
-    destination_point_button = "//*[@id='form-cart-order']/div[1]/div[3]/div/div/div/div/div/div/div[1]/div/div[2]/div/div[2]/div[2]/a"
+    pickup_delivery_radio_button = "//input[..//span[contains(text(), 'Самовывоз')]]"
+    destination_point_button = "//a[../..//div[contains(text(), 'Дзержинского')]]"
     payment_form_button = "//input[@value='cash']"
-    order_confirmation_button = "//*[@id='form-cart-order']/div[1]/div[4]/div/div/div/div[4]/div[2]/div/button/span"
+    order_confirmation_button = "//div[@class='info-group']/button[@type = 'submit' and @form='form-cart-order']"
     cart = "//a[starts-with(@href, '/cart/')]"
 
     # Getters
@@ -59,11 +60,7 @@ class ConfirmationPage(Base):
     def confirmation_order(self):
         self.get_current_url()
         self.click_pickup_delivery_radio_button()
-        time.sleep(3)
         self.click_destination_point_button()
-        time.sleep(3)
         self.click_payment_form_button()
-        time.sleep(3)
         self.screenshot()
-        time.sleep(3)
         self.click_cart()

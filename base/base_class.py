@@ -14,7 +14,7 @@ class Base:
 
     """Method assert word"""
 
-    def assert_element(self, element, result):
+    def assert_element_text(self, element, result):
         value_element = element.text
         assert value_element == result, "Wrong value element"
         print("Good value element")
@@ -33,3 +33,13 @@ class Base:
         get_url = self.driver.current_url
         assert get_url == result, "Wrong url"
         print("Good url")
+
+"""class for shortening xpath"""
+class XpathUtils:
+    @classmethod
+    def contains_class(cls, class_name):
+        return f"contains(concat(' ', @class, ' '), ' {class_name} ')"
+
+    @classmethod
+    def contains_text(cls, text):
+        return f"contains(text(), '{text}')"

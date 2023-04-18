@@ -5,7 +5,7 @@ from base.base_class import Base
 
 
 class PersonalAccountPage(Base):
-
+    """On this page creating search request with author's name in search field"""
     def __init__(self, driver):
         super().__init__(driver)
 
@@ -30,7 +30,7 @@ class PersonalAccountPage(Base):
 
     def click_search_button(self):
         self.get_search_button().click()
-        print("Click magnifier button")
+        print("Click search button")
 
     #Methods
 
